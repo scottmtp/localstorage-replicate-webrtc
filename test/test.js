@@ -48,7 +48,7 @@ describe('localstorage-replicate-webrtc node module', function () {
       b: 'b'
     };
     
-    replicator2.on('localstorageupdate', function(ns, store) {
+    replicator2.on('endreplicate', function(ns, store) {
       var storeObj = JSON.parse(store);
       var storeObj2 = JSON.parse(store2.getItem(ns));
       

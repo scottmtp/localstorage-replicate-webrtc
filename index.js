@@ -39,7 +39,7 @@ LocalStorageReplicator.prototype._getAndClearData = function() {
   
   var storeJson = JSON.stringify(store);  
   self.localStorage.setItem(namespace, storeJson);
-  self.emit('localstorageupdate', namespace, storeJson);
+  self.emit('endreplicate', namespace, storeJson);
 };
 
 LocalStorageReplicator.prototype.replicate = function(namespace) {
