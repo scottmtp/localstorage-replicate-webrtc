@@ -3,13 +3,6 @@ var util = require('util');
 var ReplicatorCommon = require('replicate-common');
 
 var LocalStorageReplicator = function(name, signalUrl, rtcOptions, storage) {
-  this.name = name;
-  this.signalUrl = signalUrl;
-  this.rtcOptions = rtcOptions;
-  
-  this.streams = [];
-  this.peers = [];
-
   ReplicatorCommon.call(this, name, signalUrl, rtcOptions);
   
   // LocalStorageReplicator
