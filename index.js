@@ -51,4 +51,6 @@ LocalStorageReplicator.prototype.replicate = function(namespace) {
     s.write(JSON.stringify(store));
     s.write(self.marker);
   });
+  
+  return Promise.resolve();
 };
