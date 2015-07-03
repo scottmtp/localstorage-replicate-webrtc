@@ -20,7 +20,7 @@ LocalStorageReplicator.prototype.receiveData = function(chunk) {
   
   // note double-equals to coerce arraybuffer to string
   if (chunk == self.marker) {
-    self.emit('enddata', self._getAndClearData());
+    self._getAndClearData();
   } else {
     self.replData.push(chunk);
   }
