@@ -17,7 +17,7 @@
     "test": "mocha --reporter spec"
   },
   "dependencies": {
-    "replicate-common": "0.0.2",
+    "replicate-common": "0.0.3",
     "debug": "^2.2.0"
   },
   "devDependencies": {
