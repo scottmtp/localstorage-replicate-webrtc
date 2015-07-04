@@ -40,7 +40,7 @@ describe('localstorage-replicate-webrtc node module', function () {
     store3._deleteLocation();
   });
   
-  it('should replicate', function (done) {
+  it('should replicate an object', function (done) {
     
     var namespace = 'localstore-replicate';
     var data = {
@@ -70,4 +70,33 @@ describe('localstorage-replicate-webrtc node module', function () {
     replicator1.replicate(namespace);
   });
   
+  it('should replicate an array', function (done) {
+    
+    var namespace = 'localstore-replicate';
+    var data = [
+      {a: '1'},
+      {a: '2'}
+      ];
+    
+    replicator2.on('endreplicate', function(ns, store) {
+      var storeObj = JSON.parse(store);
+      var storeObj2 = JSON.parse(store2.getItem(ns));
+      
+      // verify namespace
+      assert.equal(namespace, ns);
+      
+      // verify emitted data
+      assert.equal(data[0].a, storeObj[0].a);
+      assert.equal(data[1].a, storeObj[1].a);
+      
+      // verify localstorage data
+      assert.equal(data[0].a, storeObj2[0].a);
+      assert.equal(data[1].a, storeObj2[1].a);
+      
+      done();
+    });
+    
+    store1.setItem(namespace, JSON.stringify(data));
+    replicator1.replicate(namespace);
+  });
 });
