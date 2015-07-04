@@ -9,7 +9,7 @@ var LocalStorageReplicator = function(name, signalUrl, rtcOptions, storage) {
   this.localStorage = storage;
   this.replData = [];
   this.marker = '__end__';
-  this.namespaceAttribute = '__namespace__';
+  this.keyAttribute = '__key__';
 };
 
 util.inherits(LocalStorageReplicator, ReplicatorCommon);
@@ -34,19 +34,19 @@ LocalStorageReplicator.prototype._getAndClearData = function() {
   self.replData = [];
   
   var msg = JSON.parse(data);
-  var namespace = msg.namespace;
+  var key = msg.key;
   
-  var storeJson = JSON.stringify(msg.store);  
-  self.localStorage.setItem(namespace, storeJson);
-  self.emit('endreplicate', namespace, storeJson);
+  var dataJson = JSON.stringify(msg.data);  
+  self.localStorage.setItem(key, dataJson);
+  self.emit('endreplicate', key, dataJson);
 };
 
-LocalStorageReplicator.prototype.replicate = function(namespace) {
+LocalStorageReplicator.prototype.replicate = function(key) {
   var self = this;
-  var store = JSON.parse(self.localStorage.getItem(namespace));
+  var store = JSON.parse(self.localStorage.getItem(key));
   var msg = {
-    'store': store,
-    'namespace': namespace
+    'data': store,
+    'key': key
   };
   
   self.streams.forEach(function(s) {

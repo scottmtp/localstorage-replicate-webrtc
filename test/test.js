@@ -19,9 +19,9 @@ describe('localstorage-replicate-webrtc node module', function () {
       plugins: [ require('rtc-plugin-node') ]
     };
     
-    store1 = new LocalStorage('./store1');
-    store2 = new LocalStorage('./store2');
-    store3 = new LocalStorage('./store3');
+    store1 = new LocalStorage('./.store1');
+    store2 = new LocalStorage('./.store2');
+    store3 = new LocalStorage('./.store3');
     
     replicator1 = new LocalStorageReplicator('replicator1', signalUrl, rtcOpts, store1);
     replicator2 = new LocalStorageReplicator('replicator2', signalUrl, rtcOpts, store2);
