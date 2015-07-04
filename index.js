@@ -9,7 +9,6 @@ var LocalStorageReplicator = function(name, signalUrl, rtcOptions, storage) {
   this.localStorage = storage;
   this.replData = [];
   this.marker = '__end__';
-  this.keyAttribute = '__key__';
 };
 
 util.inherits(LocalStorageReplicator, ReplicatorCommon);
