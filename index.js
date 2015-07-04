@@ -33,11 +33,10 @@ LocalStorageReplicator.prototype._getAndClearData = function() {
   var data = self.replData.join('');
   self.replData = [];
   
-  var store = JSON.parse(data);
-  var namespace = store[self.namespaceAttribute];
-  delete store[self.namespaceAttribute];
+  var msg = JSON.parse(data);
+  var namespace = msg.namespace;
   
-  var storeJson = JSON.stringify(store);  
+  var storeJson = JSON.stringify(msg.store);  
   self.localStorage.setItem(namespace, storeJson);
   self.emit('endreplicate', namespace, storeJson);
 };
@@ -45,12 +44,16 @@ LocalStorageReplicator.prototype._getAndClearData = function() {
 LocalStorageReplicator.prototype.replicate = function(namespace) {
   var self = this;
   var store = JSON.parse(self.localStorage.getItem(namespace));
-  store[self.namespaceAttribute] = namespace;
-
+  var msg = {
+    'store': store,
+    'namespace': namespace
+  };
+  
   self.streams.forEach(function(s) {
-    s.write(JSON.stringify(store));
+    s.write(JSON.stringify(msg));
     s.write(self.marker);
   });
   
   return Promise.resolve();
 };
+
