@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git://github.com/scottmtp/localstorage-replicate-webrtc.git"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "keywords": [
     "localstorage-replicate-webrtc",
