@@ -11,7 +11,9 @@
   "keywords": [
     "localstorage-replicate-webrtc",
     "webrtc",
-    "localStorage"
+    "localStorage",
+    "privacy",
+    "nobackend"
   ],
   "scripts": {
     "test": "mocha --reporter spec"
