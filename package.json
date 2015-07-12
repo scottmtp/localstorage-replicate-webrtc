@@ -16,7 +16,8 @@
     "nobackend"
   ],
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "coverage": "istanbul cover _mocha -- test/ -R spec"
   },
   "dependencies": {
     "replicate-common": "0.0.3",
