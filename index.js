@@ -37,7 +37,7 @@ LocalStorageReplicator.prototype._getAndClearData = function() {
   
   var dataJson = JSON.stringify(msg.data);  
   self.localStorage.setItem(key, dataJson);
-  self.emit('endreplicate', key, dataJson);
+  self.emit('endpeerreplicate', key, dataJson);
 };
 
 LocalStorageReplicator.prototype.replicate = function(key) {
