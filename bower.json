@@ -1,0 +1,21 @@
+{
+    "authors": [
+        "Scott Dietrich <scott@minutestopost.com>"
+    ],
+    "description": "Replicate localStorage data over a WebRTC DataChannel",
+    "keywords": [
+        "localstorage-replicate-webrtc",
+        "webrtc",
+        "localStorage",
+        "privacy",
+        "nobackend"
+    ],
+    "license": "MIT",
+    "main": "dist/localstorage-replicate-webrtc.js",
+    "name": "localstorage-replicate-webrtc",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/scottmtp/localstorage-replicate-webrtc.git"
+    },
+    "version": "0.0.6"
+}
