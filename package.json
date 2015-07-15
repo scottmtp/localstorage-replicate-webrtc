@@ -16,6 +16,7 @@
     "nobackend"
   ],
   "scripts": {
+    "browserify": "browserify -r ./index.js:localstorage-replicate-webrtc > dist/localstorage-replicate-webrtc.js; uglify -s dist/localstorage-replicate-webrtc.js -o dist/localstorage-replicate-webrtc.min.js",
     "test": "mocha --reporter spec",
     "coverage": "istanbul cover _mocha -- test/ -R spec"
   },
