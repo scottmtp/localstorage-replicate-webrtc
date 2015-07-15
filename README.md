@@ -17,6 +17,10 @@ var quickconnect = require('rtc-quickconnect');
 
 var replicator = new LocalStorageReplicator('my-replicator', window.localStorage);
 
+replicator.on('endpeerreplicate', function() {
+  console.log('received data from replication');
+});
+
 quickconnect('https://switchboard.rtc.io/', { room: 'qc-simple-demo' })
   .createDataChannel('replication')
   .on('channel:opened:replication', function(id, dc) {
