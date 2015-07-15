@@ -20,7 +20,7 @@
     "coverage": "istanbul cover _mocha -- test/ -R spec"
   },
   "dependencies": {
-    "replicate-common": "0.0.3",
+    "replicate-common": "0.0.5",
     "debug": "^2.2.0"
   },
   "devDependencies": {
